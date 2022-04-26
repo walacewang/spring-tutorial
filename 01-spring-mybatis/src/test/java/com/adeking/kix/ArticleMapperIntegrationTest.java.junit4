@@ -1,0 +1,36 @@
+package com.adeking.kix;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.adeking.kix.mapper.ArticleMapper;
+import com.adeking.kix.pojo.Article;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = PersistenceConfig.class)
+public class ArticleMapperIntegrationTest {
+
+    @Autowired
+    ArticleMapper articleMapper;
+
+    @Test
+    public void sampleTest() {
+        Article article = articleMapper.getArticle(1L);
+
+        assertNotNull(article);
+        assertEquals(1L, article.getId().longValue());
+        assertEquals("Baeldung", article.getAuthor());
+        assertEquals("Working with MyBatis in Spring", article.getTitle());
+        // assertThat(article).isNotNull();
+        // assertThat(article.getId()).isEqualTo(1L);
+        // assertThat(article.getAuthor()).isEqualTo("Baeldung");
+        // assertThat(article.getTitle()).isEqualTo("Working with MyBatis in Spring");
+    }
+}
+
