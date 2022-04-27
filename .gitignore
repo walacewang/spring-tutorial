@@ -26,5 +26,9 @@ hs_err_pid*
 .gradle
 
 # Ignore Gradle build output directory
-build
-*/bin
+build/
+*/bin/
+gradle/
+gradlew
+gradlew.bat
+.idea/
