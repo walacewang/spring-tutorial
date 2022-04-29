@@ -7,5 +7,6 @@
  * in the user manual at https://docs.gradle.org/7.3/userguide/multi_project_builds.html
  */
 
-rootProject.name = 'kix001'
+rootProject.name = 'spring-tutorial'
 include('01-spring-mybatis')
+include('02-springboot')
